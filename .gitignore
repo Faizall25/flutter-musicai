@@ -42,3 +42,8 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 .env
+<<<<<<< HEAD
+=======
+.env
+.env
+>>>>>>> 86eb19f (Add .env to .gitignore)
