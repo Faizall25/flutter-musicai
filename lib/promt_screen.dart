@@ -93,7 +93,7 @@ class _PromptScreenState extends State<PromptScreen> {
           "messages": [
             {"role": "system", "content": promptText},
           ],
-          'max_tokens': 250,
+          'max_tokens': 100,
           'temperature': 0,
           "top_p": 1,
         },
@@ -126,8 +126,12 @@ class _PromptScreenState extends State<PromptScreen> {
       setState(() {
         _isLoading = false;
       });
+      final errorData = jsonDecode(response.body);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to fetch playlist')),
+        SnackBar(
+          content:
+              Text(errorData['error']['message'] ?? 'Failed to fetch playlist'),
+        ),
       );
     }
   }
